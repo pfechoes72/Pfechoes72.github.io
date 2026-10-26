@@ -7,21 +7,13 @@ html
     <title>TheTuesdayJewTX Podcast Portal</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-main: #c9d1d9;
-            --text-bright: #f0f6fc;
-            --accent-gold: #d4af37;
-            --border-color: #30363d;
-            
-            /* Platform Colors */
-            --amazon-color: #ff9900;
-            --spotify-color: #1ed760;
-            --linkedin-color: #0a66c2;
-            --substack-color: #ff5c35;
-            --youtube-color: #ff0000;
-            --whatsapp-color: #25d366;
-            --podbean-color: #3aa3e3;
+            --bg-color: #0d0f12;
+            --card-bg: #14181c;
+            --text-main: #f0f4f8;
+            --text-muted: #9aa5b1;
+            --accent-gold: #cda250;
+            --accent-gold-hover: #b88f3e;
+            --border-color: #242b32;
         }
 
         * {
@@ -31,198 +23,200 @@ html
         }
 
         body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            line-height: 1.5;
+            padding: 40px 15px;
         }
 
         .container {
-            max-width: 650px;
-            width: 100%;
-            background: var(--card-bg);
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
         }
 
-        /* Profile Image Layout Frame */
-        .profile-img {
-            width: 140px;
-            height: 140px;
+        .profile-section {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 18px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent-gold);
-            margin: 0 auto 22px auto;
-            display: block;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            box-shadow: 0 0 20px rgba(205, 162, 80, 0.35);
         }
 
-        .header h1 {
-            color: var(--text-bright);
-            font-size: 1.8rem; /* Keeps TX on the same line on mobile screens */
+        h1 {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.03em;
+            margin-bottom: 6px;
+            line-height: 1.2;
         }
 
-        .header .subtitle {
+        .subtitle {
             color: var(--accent-gold);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
         }
 
-        .links-grid {
+        .links-container {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
+            gap: 14px;
+            margin-bottom: 28px;
         }
 
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s, filter 0.2s;
             color: #ffffff;
-            border: 1px solid transparent;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 14px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-1.5px);
             filter: brightness(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
-        .btn-podbean { background-color: var(--podbean-color); }
-        .btn-youtube { background-color: var(--youtube-color); }
-        .btn-spotify { background-color: var(--spotify-color); color: #000000; }
-        .btn-substack { background-color: var(--substack-color); }
-        .btn-linkedin { background-color: var(--linkedin-color); }
-        .btn-amazon { background-color: var(--amazon-color); color: #000000; }
-        .btn-whatsapp { background-color: var(--whatsapp-color); }
+        /* Surgical platform color mappings matching your layout */
+        .btn-podbean { background-color: #0076e4; }
+        .btn-youtube { background-color: #e52d27; }
+        .btn-spotify { background-color: #1db954; }
+        .btn-substack { background-color: #ff6433; }
+        .btn-linkedin { background-color: #0077b5; }
+        .btn-amazon { background-color: #232f3e; border: 1px solid var(--border-color); }
+        .btn-whatsapp { background-color: #25d366; }
 
-        /* Blog Section Component */
-        .blog-section {
-            border-top: 1px solid var(--border-color);
-            margin-top: 20px;
-            padding-top: 30px;
-            text-align: left;
+        .icon {
+            margin-right: 10px;
+            font-size: 1.15rem;
         }
 
-        .blog-section h2 {
-            color: var(--text-bright);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--accent-gold);
-            padding-left: 12px;
-        }
-
-        .blog-card {
-            background: #0d1117;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .blog-card p {
-            font-size: 1.05rem;
-            color: var(--text-main);
-            margin-bottom: 12px;
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
-        .footer {
+        .about-section {
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
-            font-size: 0.85rem;
-            color: #8b949e;
-            margin-top: 20px;
+            margin-top: 10px;
+        }
+
+        .about-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-title::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 14px;
+            background-color: var(--accent-gold);
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        footer {
             text-align: center;
+            margin-top: 24px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Live Verified Profile Photo Node -->
-        <img src="https://github.com" alt="Phillip M. Goldstein" class="profile-img">
-
-        <div class="header">
+        <div class="profile-section">
+            <div class="avatar-container">
+                <img class="avatar" src="https://podbean.com" alt="TheTuesdayJewTX Cover Art">
+            </div>
             <h1>TheTuesdayJewTX Podcast</h1>
             <div class="subtitle">Raw Cognitive Reality</div>
         </div>
 
-        <div class="links-grid">
-            <!-- Audio Feed Node -->
-            <a href="https://feed.podbean.com/philg81272/feed.xml" class="btn btn-podbean" target="_blank">
-                🎙️ Podbean RSS Audio Feed
+        <div class="links-container">
+            <a href="https://podbean.com" class="btn btn-podbean" target="_blank" rel="noopener">
+                <span class="icon">🎙️</span> Podbean RSS Audio Feed
             </a>
-
-            <!-- YouTube Video Node -->
-            <a href="https://www.youtube.com/@TuesdayJewTx/videos" class="btn btn-youtube" target="_blank">
-                📺 YouTube Video Channel
+            <a href="https://youtube.com" class="btn btn-youtube" target="_blank" rel="noopener">
+                <span class="icon">📺</span> YouTube Video Channel
             </a>
-
-            <!-- Spotify Streaming Node -->
-            <a href="https://spotify.com" class="btn btn-spotify" target="_blank">
-                🔊 Stream on Spotify
+            <a href="https://spotify.com" class="btn btn-spotify" target="_blank" rel="noopener">
+                <span class="icon">🔊</span> Stream on Spotify
             </a>
-
-            <!-- Substack Article Node -->
-            <a href="https://substack.com" class="btn btn-substack" target="_blank">
-                📰 Read on Substack
+            <a href="https://podbean.com" class="btn btn-substack" target="_blank" rel="noopener">
+                <span class="icon">📰</span> Read on Substack
             </a>
-
-            <!-- LinkedIn Networking Node -->
-            <a href="https://linkedin.com" class="btn btn-linkedin" target="_blank">
-                💼 Connect on LinkedIn
+            <a href="https://linkedin.com" class="btn btn-linkedin" target="_blank" rel="noopener">
+                <span class="icon">💼</span> Connect on LinkedIn
             </a>
-
-            <!-- Amazon Music Node -->
-            <a href="https://amazon.com" class="btn btn-amazon" target="_blank">
-                📦 Listen on Amazon Music
+            <a href="https://amazon.com" class="btn btn-amazon" target="_blank" rel="noopener">
+                <span class="icon">📦</span> Listen on Amazon Music
             </a>
-
-            <!-- WhatsApp Broadcast Node -->
-            <a href="https://whatsapp.com" class="btn btn-whatsapp" target="_blank">
-                📱 Join WhatsApp Broadcast Status
+            <a href="https://wa.me" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                <span class="icon">📱</span> Join WhatsApp Broadcast Status
             </a>
         </div>
 
-        <!-- Mini-Blog Layout Component -->
-        <div class="blog-section">
-            <h2>About the Show</h2>
-            <div class="blog-card">
-                <p>
-                    Welcome to the central portal. This show is designed for conscious-minded individuals who refuse to fit into artificial, compliance-driven modern corporate or political silos.
-                </p>
-                <p>
-                    By stripping away modern Western coldness, we bridge the gap back to raw truth. We ground our perspectives in classic, old-school European Mussar and traditional deep-level Torah frameworks, confronting systemic echo chambers directly from Texas. No selling out, no filters—just unedited cognitive reality.
-                </p>
-            </div>
+        <div class="about-section">
+            <div class="about-title">About the Show</div>
+            <p class="description">
+                Welcome to the central portal. This show is designed for conscious-minded individuals who refuse to fit into artificial, compliance-driven modern corporate or political silos. Grounded in classic, old-school European Mussar and traditional deep-level Torah frameworks, we confront systemic echo chambers directly from Texas. No selling out, no filters—just unedited cognitive reality.
+            </p>
         </div>
 
-        <div class="footer">
-            &copy; 2026 TheTuesdayJewTX Podcast &bull; Managed Independently via GitHub Pages
-        </div>
+        <footer>
+            © 2026 TheTuesdayJewTX Podcast • Managed Independently via <a href="https://github.com" target="_blank" rel="noopener">GitHub Pages</a>
+        </footer>
     </div>
 
 </body>
-</html
+</html>
