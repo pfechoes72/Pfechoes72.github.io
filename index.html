@@ -35,7 +35,7 @@ html
             color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -53,11 +53,23 @@ html
             box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
 
+        /* Profile Image Layout Frame */
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-gold);
+            margin: 0 auto 22px auto;
+            display: block;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+        }
+
         .header h1 {
             color: var(--text-bright);
             font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             letter-spacing: -0.5px;
         }
 
@@ -68,14 +80,6 @@ html
             letter-spacing: 2px;
             margin-bottom: 25px;
             font-weight: 600;
-        }
-
-        .description {
-            font-size: 1.05rem;
-            margin-bottom: 35px;
-            color: var(--text-main);
-            text-align: justify;
-            text-justify: inter-word;
         }
 
         .links-grid {
@@ -104,7 +108,6 @@ html
             filter: brightness(1.1);
         }
 
-        /* Platform Classes with Template Placeholders */
         .btn-podbean { background-color: var(--podbean-color); }
         .btn-youtube { background-color: var(--youtube-color); }
         .btn-spotify { background-color: var(--spotify-color); color: #000000; }
@@ -113,34 +116,67 @@ html
         .btn-amazon { background-color: var(--amazon-color); color: #000000; }
         .btn-whatsapp { background-color: var(--whatsapp-color); }
 
+        /* Blog Section Component */
+        .blog-section {
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+            padding-top: 30px;
+            text-align: left;
+        }
+
+        .blog-section h2 {
+            color: var(--text-bright);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 12px;
+        }
+
+        .blog-card {
+            background: #0d1117;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .blog-card p {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
         .footer {
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
             font-size: 0.85rem;
             color: #8b949e;
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Live Verified Profile Photo Node -->
+        <img src="https://podbean.com" alt="Phillip M. Goldstein" class="profile-img" onerror="this.src='https://github.com'">
+
         <div class="header">
             <h1>TheTuesdayJewTX Podcast</h1>
             <div class="subtitle">Raw Cognitive Reality</div>
         </div>
 
-        <p class="description">
-            Unedited, systemic breakdowns connecting classic European Mussar and traditional deep-level Torah frameworks with the conscious, global anti-system movement. Standing solid against compliance-driven corporate silos and artificial filters straight from the hubs of Texas.
-        </p>
-
         <div class="links-grid">
             <!-- Audio Feed Node -->
-            <a href="https://feed.podbean.com/philg81272/feed.xml" class="btn btn-podbean" target="_blank">
+            <a href="https://podbean.com" class="btn btn-podbean" target="_blank">
                 🎙️ Podbean RSS Audio Feed
             </a>
 
             <!-- YouTube Video Node -->
-            <a href="https://www.youtube.com/@TuesdayJewTx/videos" class="btn btn-youtube" target="_blank">
+            <a href="https://youtube.com" class="btn btn-youtube" target="_blank">
                 📺 YouTube Video Channel
             </a>
 
@@ -168,6 +204,19 @@ html
             <a href="https://whatsapp.com" class="btn btn-whatsapp" target="_blank">
                 📱 Join WhatsApp Broadcast Status
             </a>
+        </div>
+
+        <!-- Mini-Blog Layout Component -->
+        <div class="blog-section">
+            <h2>About the Show</h2>
+            <div class="blog-card">
+                <p>
+                    Welcome to the central portal. This show is designed for conscious-minded individuals who refuse to fit into artificial, compliance-driven modern corporate or political silos.
+                </p>
+                <p>
+                    By stripping away modern Western coldness, we bridge the gap back to raw truth. We ground our perspectives in classic, old-school European Mussar and traditional deep-level Torah frameworks, confronting systemic echo chambers directly from Texas. No selling out, no filters—just unedited cognitive reality.
+                </p>
+            </div>
         </div>
 
         <div class="footer">
